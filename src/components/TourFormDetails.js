@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-//import Dialog from '@material-ui/core/Dialog';
-//import AppBar from '@material-ui/core/AppBar';
 import PropTypes from 'prop-types';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { TextareaAutosize } from '@material-ui/core';
-import appcss from '../App.css';
 import { withStyles } from '@material-ui/styles';
 
 const styles = {
   root: {
-    backgroundColor : ''
+    float : 'right'
   }
 }
 
@@ -27,10 +24,10 @@ export class TourFormDetails extends Component {
                 
         const { values, handleChange,classes } = this.props;
         return (
-          <div className={classes.root}>
-          <MuiThemeProvider >
-            <React.Fragment ClassName="form">
-                
+          // <div className={classes.root}>
+          // <MuiThemeProvider >
+          //   <React.Fragment >
+                <form className={classes.root} noValidate autoComplete="off">
                 <TextField
                   label="Standard"
                   id="outlined-basic"
@@ -40,8 +37,6 @@ export class TourFormDetails extends Component {
                   defaultValue={values.title}
                   margin="normal"
                   //fullWidth="true"
-                  
-
                 />
                 <br />
                 <TextField
@@ -51,7 +46,6 @@ export class TourFormDetails extends Component {
                   defaultValue={values.destination}
                   margin="normal"
                   //fullWidth="true"
-                  
                 /> 
                 <TextField
                   placeholder="مبدا حرکت را وارد کنيد"
@@ -62,13 +56,12 @@ export class TourFormDetails extends Component {
                   label="مبدا"
                   //fullWidth="true"
                 /> 
-                
                 <br />
                 <TextField
                   placeholder="هزینه تور را وارد کنید"
                   label="هزینه"
                   onChange={handleChange('cost')}
-                  defaultValue={values.cost}
+                  defaultValue={values.cost,"ریال"}
                   margin="normal"
                   //startAdornment={<InputAdornment position="start">$</InputAdornment>}
                   //fullWidth="true"
@@ -80,6 +73,10 @@ export class TourFormDetails extends Component {
                   onChange={handleChange('capacity')}
                   defaultValue={values.capacity}
                   margin="normal"
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   //fullWidth="true"
                 /> 
                 <br />
@@ -93,7 +90,6 @@ export class TourFormDetails extends Component {
                   margin="normal"
                   //fullWidth="true"
                   multyline="true"
-                  
                 /> 
                 <br /> <br/>
                 <Button
@@ -103,10 +99,11 @@ export class TourFormDetails extends Component {
                   onClick={this.continue}
                   //style={{backgroundColor : 'green'}}
                 >ادامه</Button>
-              
-            </React.Fragment>
-          </MuiThemeProvider>
-          </div>
+              </form>
+          //   </React.Fragment>
+          // </MuiThemeProvider>
+          // </div>
+
         );
       }
     }
