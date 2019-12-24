@@ -74,6 +74,8 @@ export class TourFormDetails extends Component {
                   //fullWidth="true"
                 /> 
                 <br />
+
+                
                 <TextField
                   placeholder="ظرفیت تور را وارد کنید"
                   label="ظرفیت"
